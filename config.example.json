@@ -1,0 +1,26 @@
+{
+  "_comment": "Copy this file to config.json and edit the values below. Webhook URLs go in GitHub secrets, NOT here.",
+
+  "price_ticker": "NQ=F",
+  "price_alert_levels": [
+    { "label": "Overnight high", "price": 20450, "direction": "above" },
+    { "label": "Key support", "price": 20100, "direction": "below" }
+  ],
+
+  "gex_ticker": "QQQ",
+  "_gex_ticker_comment": "GEX is computed from options chains. NQ/MNQ futures don't have a retail options chain, so QQQ (or ^NDX) is used as the correlated proxy.",
+  "gex_expirations_to_use": 2,
+  "_gex_expirations_comment": "1 = nearest expiration only (0DTE-style, noisier day to day). 2-3 = smoother, steadier read. There's no single 'correct' value - this is a design choice.",
+  "risk_free_rate": 0.05,
+
+  "forex_factory": {
+    "impact_filters": ["High", "Medium"],
+    "_impact_comment": "High = red folder, Medium = orange, Low = yellow, Holiday = gray. Add/remove to taste.",
+    "currency_filters": ["USD"],
+    "_currency_comment": "Empty list [] = all currencies.",
+    "hours_before_reminder": 2,
+    "remind_day_of": true
+  },
+
+  "poll_state_file": "state.json"
+}
